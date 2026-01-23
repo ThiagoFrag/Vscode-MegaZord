@@ -12,14 +12,14 @@
         {
             "id": "customFile",
             "type": "promptString",
-            "description": "Digite o caminho do arquivo para processar:",
+            "description": "Arquivo para processar (vazio para work.txt):",
             "default": "work.txt"
         },
         {
-            "id": "searchTerm",
+            "id": "commitMessage",
             "type": "promptString",
-            "description": "Digite o termo para buscar no config:",
-            "default": ""
+            "description": "Mensagem do commit:",
+            "default": "HOG: secure update"
         }
     ],
     "tasks": [
@@ -27,7 +27,7 @@
             "label": "[HOG] ENCODE - Preparar para IA",
             "type": "shell",
             "command": "C:\\Users\\th\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
-            "args": ["translator.py", "encode"],
+            "args": ["translator.py", "encode", "--file", "${input:customFile}"],
             "group": {"kind": "build", "isDefault": true},
             "presentation": {
                 "reveal": "always",
@@ -42,7 +42,7 @@
             "label": "[HOG] RESTORE - Restaurar Original",
             "type": "shell",
             "command": "C:\\Users\\th\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
-            "args": ["translator.py", "restore"],
+            "args": ["translator.py", "restore", "--file", "${input:customFile}"],
             "group": "build",
             "presentation": {
                 "reveal": "always",
@@ -52,6 +52,31 @@
             },
             "problemMatcher": [],
             "detail": "Restaura os termos originais apos receber resposta da IA"
+        },
+        {
+            "label": "[HOG] SMART RESTORE - Restaurar e Abrir",
+            "type": "shell",
+            "command": "C:\\Users\\th\\AppData\\Local\\Programs\\Python\\Python312\\python.exe translator.py restore --file ${input:customFile}; code ${input:customFile}",
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared",
+                "clear": true
+            },
+            "problemMatcher": [],
+            "detail": "Restaura os termos e foca o editor no arquivo"
+        },
+        {
+            "label": "[HOG] FULL CYCLE - Encode + Copy",
+            "type": "shell",
+            "command": "$file = '${input:customFile}'; $result = C:\\Users\\th\\AppData\\Local\\Programs\\Python\\Python312\\python.exe translator.py encode --file $file 2>&1; Write-Host $result; if ($LASTEXITCODE -eq 0) { $content = Get-Content $file -Raw -ErrorAction SilentlyContinue; if ($content -and $content.Trim()) { Set-Clipboard -Value $content; Write-Host \"`n>>> MEGAZORD: CONTEUDO SANITIZADO E COPIADO PARA CLIPBOARD!\" -ForegroundColor Green } else { Write-Host \"`n>>> ERRO: Arquivo vazio!\" -ForegroundColor Red } } else { Write-Host \"`n>>> ERRO: Falha no encode\" -ForegroundColor Red }",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true,
+                "showReuseMessage": false
+            },
+            "problemMatcher": [],
+            "detail": "Sanitiza, valida conteudo e copia para clipboard - pronto para CTRL+V na IA"
         },
         {
             "label": "[HOG] STATS - Estatisticas",
@@ -72,7 +97,7 @@
             "label": "[HOG] PREVIEW - Ver Alteracoes",
             "type": "shell",
             "command": "C:\\Users\\th\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
-            "args": ["translator.py", "preview"],
+            "args": ["translator.py", "preview", "--file", "${input:customFile}"],
             "group": "test",
             "presentation": {
                 "reveal": "always",
@@ -82,6 +107,21 @@
             },
             "problemMatcher": [],
             "detail": "Pre-visualiza as alteracoes sem modificar o arquivo"
+        },
+        {
+            "label": "[HOG] CHECK - Verificar Seguranca",
+            "type": "shell",
+            "command": "C:\\Users\\th\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "args": ["translator.py", "check", "--file", "${input:customFile}"],
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true,
+                "showReuseMessage": false
+            },
+            "problemMatcher": [],
+            "detail": "Verifica se o arquivo esta limpo (sem termos sensiveis)"
         },
         {
             "label": "[HOG] HISTORY - Historico",
@@ -147,7 +187,7 @@
             "label": "[HOG] OBFUSCATE - Ofuscar Variaveis",
             "type": "shell",
             "command": "C:\\Users\\th\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
-            "args": ["translator.py", "obfuscate"],
+            "args": ["translator.py", "obfuscate", "--file", "${input:customFile}"],
             "group": "build",
             "presentation": {
                 "reveal": "always",
@@ -162,7 +202,7 @@
             "label": "[HOG] DEOBFUSCATE - Restaurar Variaveis",
             "type": "shell",
             "command": "C:\\Users\\th\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
-            "args": ["translator.py", "deobfuscate"],
+            "args": ["translator.py", "deobfuscate", "--file", "${input:customFile}"],
             "group": "build",
             "presentation": {
                 "reveal": "always",
@@ -177,7 +217,7 @@
             "label": "[HOG] FULL TRANSFORM - Encode + Obfuscate",
             "type": "shell",
             "command": "C:\\Users\\th\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
-            "args": ["translator.py", "full"],
+            "args": ["translator.py", "full", "--file", "${input:customFile}"],
             "group": "build",
             "presentation": {
                 "reveal": "always",
@@ -189,43 +229,17 @@
             "detail": "Aplica encode semantico + ofuscacao de variaveis em um passo"
         },
         {
-            "label": "[HOG] CLEAN - Limpar Backups",
+            "label": "[HOG] GIT - SAFE DEPLOY",
             "type": "shell",
-            "command": "Remove-Item",
-            "args": ["-Path", "work_*.txt", "-Force", "-ErrorAction", "SilentlyContinue"],
+            "command": "$check = C:\\Users\\th\\AppData\\Local\\Programs\\Python\\Python312\\python.exe translator.py check 2>&1; if ($LASTEXITCODE -eq 0) { Write-Host '>>> Arquivo limpo - iniciando deploy...' -ForegroundColor Green; git add .; git commit -m '${input:commitMessage}'; git push origin main; Write-Host '>>> DEPLOY CONCLUIDO!' -ForegroundColor Green } else { Write-Host $check; Write-Host '>>> DEPLOY BLOQUEADO: Remova termos sensiveis antes do push!' -ForegroundColor Red }",
             "presentation": {
                 "reveal": "always",
                 "panel": "shared",
-                "clear": true
+                "clear": true,
+                "showReuseMessage": false
             },
             "problemMatcher": [],
-            "detail": "Remove todos os arquivos de backup gerados"
-        },
-        {
-            "label": "[HOG] LIST BACKUPS - Listar Backups",
-            "type": "shell",
-            "command": "Get-ChildItem",
-            "args": ["-Path", ".", "-Filter", "work_*.txt", "-Name"],
-            "presentation": {
-                "reveal": "always",
-                "panel": "shared",
-                "clear": true
-            },
-            "problemMatcher": [],
-            "detail": "Lista todos os arquivos de backup existentes"
-        },
-        {
-            "label": "[HOG] CONFIG COUNT - Contar Regras",
-            "type": "shell",
-            "command": "C:\\Users\\th\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
-            "args": ["-c", "import json; data=json.load(open('config.json','r',encoding='utf-8')); print(f'Total de regras de traducao: {len(data)}')"],
-            "presentation": {
-                "reveal": "always",
-                "panel": "shared",
-                "clear": true
-            },
-            "problemMatcher": [],
-            "detail": "Conta o numero total de regras no config.json"
+            "detail": "Comita e sobe pro Git APENAS se o codigo estiver sanitizado"
         },
         {
             "label": "[HOG] GIT STATUS",
@@ -256,7 +270,7 @@
         {
             "label": "[HOG] GIT COMMIT ALL",
             "type": "shell",
-            "command": "git add .; git commit -m 'Update: Megazord Code'",
+            "command": "git add .; git commit -m '${input:commitMessage}'",
             "presentation": {
                 "reveal": "always",
                 "panel": "shared",
@@ -264,6 +278,43 @@
             },
             "problemMatcher": [],
             "detail": "Adiciona e comita todas as alteracoes"
+        },
+        {
+            "label": "[HOG] CLEAN - Limpar Backups",
+            "type": "shell",
+            "command": "Remove-Item -Path backups -Recurse -Force -ErrorAction SilentlyContinue; Remove-Item -Path .history.json -Force -ErrorAction SilentlyContinue; Remove-Item -Path .var_map.json -Force -ErrorAction SilentlyContinue; Write-Host 'Backups e historico limpos!' -ForegroundColor Green",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true
+            },
+            "problemMatcher": [],
+            "detail": "Remove todos os backups e arquivos temporarios"
+        },
+        {
+            "label": "[HOG] LIST BACKUPS - Listar Backups",
+            "type": "shell",
+            "command": "if (Test-Path backups) { Get-ChildItem backups -Name | Sort-Object -Descending } else { Write-Host 'Nenhum backup encontrado' -ForegroundColor Yellow }",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true
+            },
+            "problemMatcher": [],
+            "detail": "Lista todos os arquivos de backup existentes"
+        },
+        {
+            "label": "[HOG] CONFIG COUNT - Contar Regras",
+            "type": "shell",
+            "command": "C:\\Users\\th\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "args": ["-c", "import json; d=json.load(open('config.json','r',encoding='utf-8')); r={k:v for k,v in d.items() if not k.startswith('_')}; print(f'Total de regras de traducao: {len(r)}')"],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true
+            },
+            "problemMatcher": [],
+            "detail": "Conta o numero total de regras no config.json"
         },
         {
             "label": "[HOG] START_HOG.bat",
@@ -274,18 +325,6 @@
             "presentation": {"reveal": "never"},
             "problemMatcher": [],
             "detail": "Abre a interface grafica do THE HAND OF GOD"
-        },
-        {
-            "label": "[HOG] FULL CYCLE - Encode + Copy",
-            "type": "shell",
-            "command": "C:\\Users\\th\\AppData\\Local\\Programs\\Python\\Python312\\python.exe translator.py encode; Get-Content work.txt | Set-Clipboard; Write-Host 'Conteudo copiado para clipboard!'",
-            "presentation": {
-                "reveal": "always",
-                "panel": "shared",
-                "clear": true
-            },
-            "problemMatcher": [],
-            "detail": "Encode e copia resultado para area de transferencia"
         }
     ]
 }

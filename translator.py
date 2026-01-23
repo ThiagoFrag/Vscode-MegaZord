@@ -116,10 +116,15 @@ class TranslationResult:
 class SemanticTranslator:
     """Motor principal de traducao semantica."""
     
-    def __init__(self, base_path: Optional[Path] = None):
+    def __init__(self, base_path: Optional[Path] = None, work_file: Optional[str] = None):
         self.base_path = base_path or Path(__file__).parent.resolve()
         self.config_path = self.base_path / 'config.json'
-        self.work_path = self.base_path / 'work.txt'
+        # Suporte a arquivo customizado via --file
+        if work_file:
+            work_path = Path(work_file)
+            self.work_path = work_path if work_path.is_absolute() else self.base_path / work_file
+        else:
+            self.work_path = self.base_path / 'work.txt'
         self.backup_dir = self.base_path / 'backups'
         self.history_path = self.base_path / '.history.json'
         self.rules: Dict[str, str] = {}
@@ -380,6 +385,31 @@ class SemanticTranslator:
 
         return errors
 
+    def is_clean(self) -> Tuple[bool, int]:
+        """Verifica se o arquivo esta limpo (sem termos sensiveis)."""
+        if not self.work_path.exists():
+            return True, 0
+        
+        with open(self.work_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        if not content.strip():
+            return True, 0
+        
+        count = 0
+        for original in self.rules.keys():
+            if re.search(rf'\b{re.escape(original)}\b', content, re.IGNORECASE):
+                count += 1
+        
+        return count == 0, count
+
+    def get_file_content(self) -> str:
+        """Retorna o conteudo do arquivo de trabalho."""
+        if not self.work_path.exists():
+            return ""
+        with open(self.work_path, 'r', encoding='utf-8') as f:
+            return f.read()
+
     def obfuscate_variables(self, preview_only: bool = False) -> TranslationResult:
         """Ofusca nomes de variaveis sensiveis para var_a1, var_b2, etc."""
         if not self.work_path.exists():
@@ -555,8 +585,9 @@ class SemanticTranslator:
 class CLI:
     """Interface de linha de comando."""
     
-    def __init__(self):
-        self.translator = SemanticTranslator()
+    def __init__(self, work_file: Optional[str] = None):
+        self.translator = SemanticTranslator(work_file=work_file)
+        self.work_file = work_file
     
     def print_banner(self) -> None:
         """Exibe o banner do aplicativo."""
@@ -764,6 +795,16 @@ class CLI:
             else:
                 print(f"{Colors.GREEN}[OK] Configuracao valida!{Colors.RESET}")
         
+        elif command in ('check', 'c'):
+            # Verifica se o arquivo esta limpo para deploy
+            is_clean, count = self.translator.is_clean()
+            if is_clean:
+                print(f"{Colors.GREEN}[OK] Arquivo limpo - 0 termos sensiveis{Colors.RESET}")
+                sys.exit(0)
+            else:
+                print(f"{Colors.RED}[BLOCKED] {count} termos sensiveis detectados{Colors.RESET}")
+                sys.exit(1)
+        
         elif command in ('preview', 'p'):
             result = self.translator.encode(preview_only=True)
             if result.success and result.changes:
@@ -831,8 +872,28 @@ class CLI:
 
 def main():
     """Funcao principal."""
-    cli = CLI()
-    cli.run(sys.argv[1:])
+    import argparse
+    
+    # Parser para argumentos
+    parser = argparse.ArgumentParser(
+        description='MEGAZORD CODE - Semantic Translation Engine',
+        add_help=False
+    )
+    parser.add_argument('command', nargs='?', default='interactive',
+                        help='Comando a executar')
+    parser.add_argument('--file', '-f', type=str, default=None,
+                        help='Arquivo para processar (padrao: work.txt)')
+    parser.add_argument('--help', '-h', action='store_true',
+                        help='Mostra ajuda')
+    
+    args = parser.parse_args()
+    
+    # Se --help ou comando help
+    if args.help or args.command in ('help', '--help', '-h'):
+        args.command = 'help'
+    
+    cli = CLI(work_file=args.file)
+    cli.run([args.command])
 
 if __name__ == "__main__":
     main()
