@@ -1,12 +1,22 @@
 # MEGAZORD CODE
 
-## THE HAND OF GOD - Semantic Translation Engine v3.0
+## THE HAND OF GOD - Semantic Translation Engine v5.0
 
 Uma ferramenta de alto desempenho para normalizacao semantica de codigo. Traduz termos sensiveis para termos neutros antes de enviar para IAs e restaura os termos originais depois.
 
-![Version](https://img.shields.io/badge/version-3.0.0-blue)
+![Version](https://img.shields.io/badge/version-5.0.0-blue)
 ![Python](https://img.shields.io/badge/python-3.8+-green)
 ![License](https://img.shields.io/badge/license-MIT-orange)
+![MCP](https://img.shields.io/badge/MCP-enabled-purple)
+
+---
+
+## Novidades v5.0
+
+- **MCP Server** - Servidor Model Context Protocol para integracao com GitHub Copilot
+- **Traducao em Tempo Real** - Ferramentas disponiveis diretamente no chat do Copilot
+- **104 Regras** - Paradigma de Teoria de Grafos e Compiladores
+- **SAFE DEPLOY** - Bloqueia push com termos sensiveis
 
 ---
 
@@ -28,12 +38,17 @@ python translator.py interactive # Modo interativo
 ### VSCode (Ctrl+Shift+B)
 Acesse o menu de tasks e selecione a operacao desejada.
 
+### MCP Server (GitHub Copilot)
+O servidor MCP integra automaticamente com o chat do Copilot.
+Use os comandos: `encode`, `decode`, `check`, `find_terms`, `get_rules`
+
 ---
 
 ## Requisitos
 
 - Python 3.8+
 - Windows/Linux/macOS
+- VSCode com GitHub Copilot (para MCP)
 
 ---
 

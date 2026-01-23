@@ -169,5 +169,11 @@
     "debug.inlineValues": "on",
 
     // TELEMETRY - Desativado
-    "telemetry.telemetryLevel": "off"
+    "telemetry.telemetryLevel": "off",
+
+    // ============================================================
+    // MCP SERVER - MEGAZORD REAL-TIME TRANSLATION
+    // ============================================================
+    "chat.mcp.enabled": true,
+    "github.copilot.chat.codeGeneration.useInstructionFiles": true
 }

@@ -1,0 +1,13 @@
+{
+    "mcpServers": {
+        "megazord": {
+            "command": "C:\\Users\\th\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "args": [
+                "c:\\Users\\th\\Desktop\\a\\mcp_server.py"
+            ],
+            "env": {
+                "PYTHONIOENCODING": "utf-8"
+            }
+        }
+    }
+}
