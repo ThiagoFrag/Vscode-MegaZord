@@ -80,6 +80,62 @@
         "snyk-security.snyk-vulnerability-scanner",
         "42crunch.vscode-openapi",
 
+        // ════════════════════════════════════════════════════════════════
+        // 🔬 STATIC ANALYSIS - ANÁLISE ESTÁTICA AVANÇADA
+        // ════════════════════════════════════════════════════════════════
+
+        // === GO - Staticcheck, GoSec, Errcheck, Gocyclo ===
+        "golang.go",
+
+        // === PYTHON - Pylint, Bandit, Mypy, Flake8, Radon ===
+        "ms-python.pylint",
+        "ms-python.mypy-type-checker",
+        "ms-python.flake8",
+        "matangover.mypy",
+
+        // === JAVASCRIPT/TYPESCRIPT - ESLint, TSLint, Complexity ===
+        "dbaeumer.vscode-eslint",
+        "kisstkondansen.vscode-gutter-preview",
+        "jbockle.jbockle-format-files",
+
+        // === RUST - Clippy (via rust-analyzer) ===
+        "rust-lang.rust-analyzer",
+        "vadimcn.vscode-lldb",
+        "tamasfe.even-better-toml",
+
+        // === C/C++ - Clang-Tidy, Cppcheck, PVS-Studio ===
+        "ms-vscode.cpptools",
+        "ms-vscode.cpptools-extension-pack",
+        "llvm-vs-code-extensions.vscode-clangd",
+        "jbenden.c-cpp-flylint",
+
+        // === JAVA - SpotBugs, PMD, Checkstyle ===
+        "redhat.java",
+        "vscjava.vscode-java-pack",
+        "shengchen.vscode-checkstyle",
+
+        // === PHP - PHPStan, Psalm, PHP_CodeSniffer ===
+        "bmewburn.vscode-intelephense-client",
+        "phpstan.vscode-phpstan",
+
+        // === SHELL/BASH - ShellCheck ===
+        "timonwong.shellcheck",
+        "foxundermoon.shell-format",
+
+        // === SQL - SQLFluff, SQL Lint ===
+        "dorzey.vscode-sqlfluff",
+
+        // === DOCKER - Hadolint ===
+        "exiasr.hadolint",
+
+        // === TERRAFORM/IaC - TFLint, Checkov ===
+        "hashicorp.terraform",
+        "bridgecrew.checkov",
+
+        // === YAML/JSON - Schema Validation ===
+        "redhat.vscode-yaml",
+        "ZainChen.json",
+
         // === DEBUGGING ===
         "hediet.debug-visualizer",
         "msjsdiag.vscode-react-native",

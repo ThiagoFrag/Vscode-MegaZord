@@ -581,5 +581,123 @@
     // 🎯 PROJECT MANAGER
     // ═══════════════════════════════════════════════════════════════════
     "projectManager.git.baseFolders": ["C:\\Users\\th\\Desktop"],
-    "projectManager.sortList": "Recent"
+    "projectManager.sortList": "Recent",
+
+    // ═══════════════════════════════════════════════════════════════════
+    // 🔬 STATIC ANALYSIS - ANÁLISE ESTÁTICA AVANÇADA
+    // ═══════════════════════════════════════════════════════════════════
+
+    // === GO: Staticcheck, GoSec, Errcheck, Gocyclo, Revive ===
+    "go.lintTool": "golangci-lint",
+    "go.lintFlags": ["--fast"],
+    "go.lintOnSave": "workspace",
+    "go.vetOnSave": "workspace",
+    "go.formatTool": "goimports",
+    "go.useLanguageServer": true,
+    "go.toolsManagement.autoUpdate": true,
+    "gopls": {
+        "ui.diagnostic.staticcheck": true,
+        "ui.diagnostic.analyses": {
+            "unusedparams": true,
+            "shadow": true,
+            "fieldalignment": true,
+            "nilness": true,
+            "unusedwrite": true,
+            "useany": true
+        },
+        "ui.codelenses": {
+            "gc_details": true,
+            "generate": true,
+            "test": true
+        }
+    },
+
+    // === PYTHON: Pylint, Bandit, Mypy, Flake8, Radon ===
+    "python.analysis.typeCheckingMode": "standard",
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportUnusedImport": "warning",
+        "reportUnusedVariable": "warning",
+        "reportMissingImports": "error",
+        "reportMissingTypeStubs": "information",
+        "reportPrivateUsage": "warning",
+        "reportGeneralTypeIssues": "error"
+    },
+    "pylint.enabled": true,
+    "pylint.args": [
+        "--max-line-length=120",
+        "--disable=C0114,C0115,C0116",
+        "--enable=W0611,W0612,W0613,W0614"
+    ],
+    "mypy-type-checker.args": [
+        "--strict",
+        "--ignore-missing-imports"
+    ],
+    "flake8.args": [
+        "--max-line-length=120",
+        "--ignore=E501,W503",
+        "--max-complexity=10"
+    ],
+
+    // === JAVASCRIPT/TYPESCRIPT: ESLint com regras avançadas ===
+    "eslint.options": {
+        "rules": {
+            "no-unused-vars": "warn",
+            "no-console": "warn",
+            "complexity": ["warn", 10],
+            "max-depth": ["warn", 4],
+            "max-lines-per-function": ["warn", 50],
+            "no-eval": "error",
+            "no-implied-eval": "error"
+        }
+    },
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "typescript.preferences.importModuleSpecifier": "relative",
+
+    // === RUST: Clippy (via rust-analyzer) ===
+    "rust-analyzer.check.command": "clippy",
+    "rust-analyzer.check.allTargets": true,
+    "rust-analyzer.diagnostics.enable": true,
+    "rust-analyzer.diagnostics.experimental.enable": true,
+    "rust-analyzer.lens.enable": true,
+    "rust-analyzer.lens.run.enable": true,
+    "rust-analyzer.lens.debug.enable": true,
+    "rust-analyzer.inlayHints.chainingHints.enable": true,
+    "rust-analyzer.inlayHints.typeHints.enable": true,
+
+    // === C/C++: Clang-Tidy, Cppcheck ===
+    "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+    "C_Cpp.codeAnalysis.clangTidy.checks.enabled": [
+        "bugprone-*",
+        "cert-*",
+        "clang-analyzer-*",
+        "cppcoreguidelines-*",
+        "modernize-*",
+        "performance-*",
+        "readability-*"
+    ],
+    "C_Cpp.codeAnalysis.runAutomatically": true,
+    "c-cpp-flylint.cppcheck.enable": true,
+    "c-cpp-flylint.clang.enable": true,
+    "c-cpp-flylint.flexelint.enable": false,
+
+    // === SHELL: ShellCheck ===
+    "shellcheck.enable": true,
+    "shellcheck.run": "onSave",
+    "shellcheck.executablePath": "",
+    "shellcheck.exclude": [],
+    "shellcheck.customArgs": ["-x"],
+
+    // === DOCKER: Hadolint ===
+    "hadolint.hadolintPath": "",
+    "hadolint.cliOptions": ["--no-color"],
+
+    // === TERRAFORM: TFLint, Checkov ===
+    "terraform.languageServer.enable": true,
+    "terraform.experimentalFeatures.validateOnSave": true,
+
+    // === SQL: SQLFluff ===
+    "sqlfluff.executablePath": "",
+    "sqlfluff.dialect": "postgres",
+    "sqlfluff.linter.run": "onSave"
 }
