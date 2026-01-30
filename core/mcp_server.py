@@ -2,14 +2,14 @@
 # -*- coding: utf-8 -*-
 """
 ================================================================================
-    MEGAZORD CODE - MCP Server v5.0
+    LEVIATHAN VS - Tentacle Protocol Server v7.0
     Real-Time Semantic Translation Server
     
     Model Context Protocol Server para traducao semantica em tempo real.
     Integra com VS Code para aplicar regras automaticamente durante digitacao.
     
     Autor: ThiagoFrag
-    Versao: 5.0.0
+    Versao: 7.0.0
 ================================================================================
 """
 
@@ -28,14 +28,14 @@ logging.basicConfig(
     format='%(asctime)s [%(levelname)s] %(message)s',
     handlers=[logging.StreamHandler(sys.stderr)]
 )
-logger = logging.getLogger("megazord-mcp")
+logger = logging.getLogger("leviathan-mcp")
 
 # ============================================================================
 # CONSTANTES
 # ============================================================================
 
-VERSION = "5.0.0"
-SERVER_NAME = "megazord-semantic-server"
+VERSION = "7.0.0"
+SERVER_NAME = "leviathan-tentacle-server"
 
 # ============================================================================
 # MCP PROTOCOL IMPLEMENTATION

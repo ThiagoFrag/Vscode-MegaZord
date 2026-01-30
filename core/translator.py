@@ -2,15 +2,15 @@
 # -*- coding: utf-8 -*-
 """
 ================================================================================
-    MEGAZORD CODE - THE HAND OF GOD
-    Semantic Translation Engine v4.0
+    LEVIATHAN VS - The Abyss Engine
+    Semantic Translation Engine v7.0
 
     Motor de traducao semantica com paradigma de Teoria de Grafos.
     Abstrai termos sensiveis para nomenclatura de compiladores e estruturas
     de dados, tornando o codigo invisivel a filtros de contexto.
 
     Autor: ThiagoFrag
-    Versao: 4.0.0
+    Versao: 7.0.0
 ================================================================================
 """
 
@@ -28,9 +28,9 @@ from enum import Enum
 # CONSTANTES E CONFIGURACOES
 # ============================================================================
 
-VERSION = "4.0.0"
-APP_NAME = "MEGAZORD CODE"
-PARADIGM = "Graph Theory / Compiler Design"
+VERSION = "7.0.0"
+APP_NAME = "LEVIATHAN VS"
+PARADIGM = "Deep Sea / Abyssal Terminology"
 
 class Colors:
     """Codigos ANSI para cores no terminal."""

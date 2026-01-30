@@ -1,10 +1,10 @@
-# MEGAZORD CODE v7.0 - Instrucoes para IA
+# LEVIATHAN VS v7.0 - Instrucoes para IA
 
-# THE HAND OF GOD - NASA Ultimate Configuration
+# LEVIATHAN - NASA Ultimate Configuration
 
 ## Contexto do Projeto
 
-Este projeto usa um sistema de traducao semantica chamado "THE HAND OF GOD" para normalizar termos tecnicos antes de processar codigo com IAs.
+Este projeto usa um sistema de traducao semantica chamado "LEVIATHAN" para normalizar termos tecnicos antes de processar codigo com IAs.
 
 ---
 

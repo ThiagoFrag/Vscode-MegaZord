@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-THE HAND OF GOD - HTTP Toolkit v2.0 (AI-Powered Network Dispatcher)
-Interceptor de tráfego com IA integrada e Normalização Semântica.
+LEVIATHAN VS - Abyssal Interceptor v2.0 (AI-Powered Network Dispatcher)
+Interceptor de trafego com IA integrada e Normalizacao Semantica.
 
 Funcionalidades:
-- 🤖 AI Integration: Análise automática de respostas via LLM
-- 🎭 Header Mimicry: Rotação automática de User-Agent
-- 📊 Response Diff: Comparação de respostas sanitizadas
-- 🔧 AI Auto-Repair: Recuperação automática de erros
-- 🌐 Shadow Interception: Proxy invisível para análise
+- Echolocation: Analise automatica de respostas via LLM
+- Camouflage: Rotacao automatica de User-Agent
+- Depth Analysis: Comparacao de respostas sanitizadas
+- Regeneration: Recuperacao automatica de erros
+- Ink Cloud: Proxy invisivel para analise
 """
 
 import json

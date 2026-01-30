@@ -1,89 +1,109 @@
-# VSCode MegaZord
+# LEVIATHAN VS
 
-## Ultimate VS Code Configuration for Security Researchers & Developers
+```
+    ██╗     ███████╗██╗   ██╗██╗ █████╗ ████████╗██╗  ██╗ █████╗ ███╗   ██╗
+    ██║     ██╔════╝██║   ██║██║██╔══██╗╚══██╔══╝██║  ██║██╔══██╗████╗  ██║
+    ██║     █████╗  ██║   ██║██║███████║   ██║   ███████║███████║██╔██╗ ██║
+    ██║     ██╔══╝  ╚██╗ ██╔╝██║██╔══██║   ██║   ██╔══██║██╔══██║██║╚██╗██║
+    ███████╗███████╗ ╚████╔╝ ██║██║  ██║   ██║   ██║  ██║██║  ██║██║ ╚████║
+    ╚══════╝╚══════╝  ╚═══╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
+                        
+                    [ VS Code Environment for the Deep ]
+```
 
-A comprehensive VS Code configuration toolkit with semantic translation engine, HTTP toolkit, and 80+ extensions for static analysis across multiple languages.
+## The Abyss Awaits - Ultimate Development Configuration
 
-![Version](https://img.shields.io/badge/version-7.0.0-blue)
-![Python](https://img.shields.io/badge/python-3.8+-green)
-![License](https://img.shields.io/badge/license-MIT-orange)
-![Extensions](https://img.shields.io/badge/extensions-80+-purple)
-![Rules](https://img.shields.io/badge/translation_rules-640+-red)
+A monstrous VS Code configuration that rises from the depths. Semantic translation engine, HTTP interceptor, and 80+ extensions forged in the darkness of the deep sea.
+
+![Version](https://img.shields.io/badge/version-7.0.0-0d1117?style=for-the-badge&labelColor=161b22)
+![Python](https://img.shields.io/badge/python-3.8+-1f6feb?style=for-the-badge&labelColor=0d1117)
+![License](https://img.shields.io/badge/license-MIT-238636?style=for-the-badge&labelColor=0d1117)
+![Extensions](https://img.shields.io/badge/extensions-80+-8957e5?style=for-the-badge&labelColor=0d1117)
+![Rules](https://img.shields.io/badge/translation_rules-640+-f85149?style=for-the-badge&labelColor=0d1117)
 
 ---
 
-## What is this?
+## What Lurks Within
 
-VSCode MegaZord is a complete development environment configuration that includes:
+Leviathan VS is a complete development environment that emerges from the abyss:
 
-1. **Semantic Translation Engine** - Translates sensitive security terms to neutral graph theory terminology before sending code to AI assistants
-2. **HTTP Toolkit** - Intercept and analyze HTTP traffic with AI-powered insights
-3. **Static Analysis** - Pre-configured linters and analyzers for 10+ languages
-4. **MCP Integration** - Model Context Protocol server for GitHub Copilot
+| Component | Description |
+|-----------|-------------|
+| **Kraken Engine** | Semantic translation - transforms sensitive terms into deep sea terminology |
+| **Abyssal Interceptor** | HTTP toolkit with AI-powered analysis |
+| **Deep Scan** | Static analysis for 10+ languages |
+| **Tentacle Protocol** | MCP integration for GitHub Copilot |
 
 ---
 
-## Quick Install
+## Summon the Beast
 
-### Windows (One-Click)
+### Windows (One Command)
 
 ```batch
 INSTALL.bat
 ```
 
-### PowerShell
+### PowerShell (Advanced Ritual)
 
 ```powershell
 .\install.ps1
 ```
 
-The installer automatically:
+The summoning ritual:
 - Installs Python, Git, VS Code if needed
-- Configures all extensions
+- Configures all extensions from the deep
 - Sets up MCP for GitHub Copilot
-- Opens the project ready to use
+- Opens the abyss ready to consume
 
 ---
 
-## Features
+## The Kraken Engine
 
-### Semantic Translation Engine (THE HAND OF GOD)
+Translates security terms using Deep Sea terminology:
 
-Translates security-related terms to neutral terminology using Graph Theory paradigm:
+| Surface Term | Abyssal Translation |
+|--------------|---------------------|
+| exploit | pressure_point |
+| vulnerability | hull_breach |
+| bypass | current_redirect |
+| injection | ink_injection |
+| reverse_shell | sonar_callback |
+| payload | depth_charge |
+| backdoor | sea_gate |
+| rootkit | barnacle_cluster |
+| keylogger | echo_recorder |
+| botnet | shoal_network |
 
-| Original Term | Translated Term |
-|---------------|-----------------|
-| exploit | edge_case_path |
-| vulnerability | graph_discontinuity |
-| bypass | linear_decoupling |
-| injection | stream_merging |
-| reverse_shell | inbound_stream_binding |
+This allows AI assistants to help with legitimate security research without triggering content filters.
 
-This prevents AI assistants from refusing to help with legitimate security research.
+---
 
-### HTTP Toolkit
+## Abyssal Interceptor (HTTP Toolkit)
 
 ```bash
-# Make requests with AI analysis
+# Hunt in the depths
 python core/http_toolkit.py dispatch https://api.example.com
 
-# Scan endpoint methods
+# Scan the waters
 python core/http_toolkit.py scan https://api.example.com
 
-# Interactive mode
+# Enter the abyss
 python core/http_toolkit.py interactive
 ```
 
-Features:
-- Header Mimicry with User-Agent rotation
-- AI-powered response analysis
-- Auto-recovery from 403/401 errors
-- cURL command generation
+Capabilities:
+- **Camouflage** - User-Agent rotation and header mimicry
+- **Echolocation** - AI-powered response analysis
+- **Regeneration** - Auto-recovery from 403/401 errors
+- **Ink Cloud** - cURL command generation for stealth
 
-### Static Analysis (Languages Supported)
+---
 
-| Language | Tools |
-|----------|-------|
+## Deep Scan (Static Analysis)
+
+| Language | Hunters |
+|----------|---------|
 | Python | Pylance, Pylint, Bandit, Mypy, Radon |
 | Go | golangci-lint, Staticcheck, GoSec |
 | JavaScript/TypeScript | ESLint, Prettier, SonarLint |
@@ -95,107 +115,98 @@ Features:
 | Terraform | TFLint, Checkov |
 | SQL | SQLFluff |
 
-### Frontend Tools
-
-- React, Vue, Angular, Next.js snippets
-- Tailwind CSS IntelliSense
-- Figma to Code integration
-- Storybook support
-- GraphQL tools
-
 ---
 
-## Project Structure
+## Lair Structure
 
 ```
-VSCode-MegaZord/
+Leviathan-VS/
     .github/
-        copilot-instructions.md  # AI behavior rules
+        copilot-instructions.md  # Commands for the AI servants
     .vscode/
-        extensions.json    # 80+ recommended extensions
-        settings.json      # Optimized settings
-        tasks.json         # 20+ automation tasks
-        launch.json        # Debug configurations
-        mcp.json           # MCP server config
+        extensions.json    # 80+ tentacles (extensions)
+        settings.json      # Lair configuration
+        tasks.json         # 20+ hunting tasks
+        launch.json        # Debug depth charges
+        mcp.json           # Tentacle Protocol config
     core/
-        config.json        # 640+ translation rules
-        translator.py      # Translation engine
-        http_toolkit.py    # HTTP interceptor
-        mcp_server.py      # MCP server
+        config.json        # 640+ translation runes
+        translator.py      # Kraken Engine
+        http_toolkit.py    # Abyssal Interceptor
+        mcp_server.py      # Tentacle Protocol Server
     docs/
-        CLAUDE_SKILLS.md   # Claude integration docs
+        CLAUDE_SKILLS.md   # Servant documentation
 ```
 
 ---
 
-## Usage
+## Hunting Commands
 
 ### VS Code Tasks (Ctrl+Shift+B)
 
 | Task | Description |
 |------|-------------|
-| [HOG] ENCODE | Sanitize code before sending to AI |
-| [HOG] RESTORE | Restore original terms |
-| [HOG] PREVIEW | Preview changes without applying |
-| [HOG] CHECK | Security check for sensitive terms |
-| [HOG] INTERACTIVE | Console mode |
+| [LEVIATHAN] ENCODE | Submerge code into the deep |
+| [LEVIATHAN] RESTORE | Surface with original terms |
+| [LEVIATHAN] PREVIEW | Peek before diving |
+| [LEVIATHAN] CHECK | Scan for surface contamination |
+| [LEVIATHAN] INTERACTIVE | Enter the abyss console |
 
 ### Command Line
 
 ```bash
-# Translate (sanitize) code
+# Submerge (sanitize)
 python core/translator.py encode
 
-# Restore original terms
+# Surface (restore)
 python core/translator.py restore
 
-# Check if code is clean
+# Scan waters
 python core/translator.py check
 
-# Show statistics
+# Depth report
 python core/translator.py stats
 ```
 
-### Workflow Example
+---
+
+## The Hunt (Workflow)
 
 ```
-1. Write security code in work.txt
-2. Run ENCODE task (Ctrl+Shift+B)
-   "exploit" -> "edge_case_path"
-3. Send sanitized code to AI
+1. Write your code in work.txt
+2. Run ENCODE (Ctrl+Shift+B)
+   "exploit" -> "pressure_point"
+3. Send submerged code to AI
 4. Paste AI response in work.txt
-5. Run RESTORE task
-   "edge_case_path" -> "exploit"
-6. Original code restored
+5. Run RESTORE
+   "pressure_point" -> "exploit"
+6. Original code surfaces
 ```
 
 ---
 
-## Translation Rules (640+)
+## Translation Runes (640+)
 
-Categories covered:
+Categories from the deep:
 
-- **Offensive Security** - exploit, bypass, vulnerability
-- **Malware Analysis** - virus, trojan, backdoor
-- **Web Attacks** - XSS, CSRF, SQL injection
-- **Shells & C2** - reverse shell, webshell, beacon
-- **Network Recon** - scanner, fuzzer, sniffer
-- **Binary Exploitation** - buffer overflow, ROP chain
-- **Cloud Security** - S3 bucket, IAM escalation
-- **Auth Bypass** - session hijack, token forge
-- **Defense Evasion** - obfuscation, packing
-- **Tools** - Metasploit, Burp, Nmap, Hashcat
+- **Pressure Points** - exploit, bypass, vulnerability
+- **Parasites** - virus, trojan, backdoor
+- **Toxic Waters** - XSS, CSRF, SQL injection
+- **Sonar Systems** - reverse shell, webshell, beacon
+- **Hunting Grounds** - scanner, fuzzer, sniffer
+- **Crushing Depths** - buffer overflow, ROP chain
+- **Storm Clouds** - S3 bucket, IAM escalation
+- **Ink Clouds** - obfuscation, packing
+- **Ancient Artifacts** - Metasploit, Burp, Nmap, Hashcat
 
 ---
 
-## MCP Integration
-
-The project includes an MCP (Model Context Protocol) server that integrates with GitHub Copilot:
+## Tentacle Protocol (MCP)
 
 ```json
 {
   "servers": {
-    "megazord": {
+    "leviathan": {
       "command": "python",
       "args": ["core/mcp_server.py"],
       "env": {}
@@ -204,43 +215,43 @@ The project includes an MCP (Model Context Protocol) server that integrates with
 }
 ```
 
-Available MCP tools:
-- `encode` - Sanitize text
-- `decode` - Restore text
-- `check` - Verify if text is clean
-- `find_terms` - List sensitive terms
-- `get_rules` - Get all translation rules
+Available tentacles:
+- `encode` - Submerge text
+- `decode` - Surface text
+- `check` - Scan for contamination
+- `find_terms` - Detect surface terms
+- `get_rules` - List all runes
 
 ---
 
-## VS Code Configuration Highlights
+## Lair Configuration
 
-- **Theme**: Dark with neon green accents
-- **Font**: Cascadia Code with ligatures
-- **Auto-save**: Enabled after 1s delay
-- **Type Checking**: Standard mode for Python
-- **Format on Save**: Enabled for all languages
-- **Git**: Auto-fetch enabled
+- **Theme**: Abyssal dark with bioluminescent accents
+- **Font**: Cascadia Code with deep ligatures
+- **Auto-save**: Enabled (1s delay)
+- **Type Checking**: Standard depth
+- **Format on Save**: All languages
+- **Git**: Auto-fetch from the surface
 
 ---
 
-## Extensions Included (80+)
+## Extensions (80+ Tentacles)
 
-### Core Development
+### Core Hunters
 - Python, Pylance, Go, Rust Analyzer
 - ESLint, Prettier, EditorConfig
 
-### AI Assistants
+### AI Servants
 - GitHub Copilot, Cline, Claude Code
 
-### Security
+### Defense Systems
 - SonarQube, Snyk, SARIF Viewer
 
-### Frontend
+### Surface Tools (Frontend)
 - Tailwind CSS, Vue, React, Angular
 - Figma integration, Storybook
 
-### Productivity
+### Navigation
 - GitLens, Todo Tree, Project Manager
 - REST Client, Thunder Client
 
@@ -248,44 +259,72 @@ Available MCP tools:
 
 ## Requirements
 
-- Python 3.8+
-- VS Code 1.80+
-- Git
+- Python 3.8+ (the beast's blood)
+- VS Code 1.80+ (the lair)
+- Git (the current)
 
 ---
 
-## Installation from Source
+## Summon from Source
 
 ```bash
-git clone git@github.com:ThiagoFrag/Vscode-MegaZord.git
+git clone https://github.com/ThiagoFrag/Vscode-MegaZord.git
 cd Vscode-MegaZord
 code .
 ```
 
-Then run the `[HOG] VALIDATE` task to verify the installation.
+Run `[LEVIATHAN] VALIDATE` to verify the summoning.
 
 ---
 
-## Contributing
+## Join the Deep
 
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/NewFeature`)
-3. Commit your changes (`git commit -m 'Add new feature'`)
-4. Push to the branch (`git push origin feature/NewFeature`)
+1. Fork the abyss
+2. Create your feature branch (`git checkout -b feature/NewTentacle`)
+3. Commit your changes (`git commit -m 'Add new hunting ability'`)
+4. Push to the branch (`git push origin feature/NewTentacle`)
 5. Open a Pull Request
 
 ---
 
 ## License
 
-MIT License - See [LICENSE](LICENSE) for details.
+MIT License - Free to roam the depths
 
 ---
 
-## Author
+## Creator
 
 **ThiagoFrag** - [@ThiagoFrag](https://github.com/ThiagoFrag)
 
 ---
 
-**VSCode MegaZord v7.0** - Ultimate VS Code Configuration for Security Researchers
+```
+                         ___
+                      .-'   `'.
+                     /         \
+                     |         ;
+                     |         |           ___.--,
+            _.._     |0) ~ (0) |    _.---'`__.-( (_.
+     __.--'`_.. '.__.\    '--. \_.-' ,.--'`     `""`
+    ( ,.--'`   ',__)||   .'`-._.' /    ,'`
+    ('.   . ,-'`  / ||   | /   `'  /        '
+     `,_ . `.  ,' | ||  \.   \      `-._  ,.
+       `-.  | |   |   |   `. '-.  `._.-`  /
+          \ | | .'  ,-.  `-. `--._          |
+           ||  `-'  |.-'    `-.  `.   `. :  |
+           ||  `   '     _____  `'     `-` /
+           |' \    \   .'     `.        /.'
+           |   `.   '-'`._..---'    _..-'
+           |     `-..__        _..--'
+           |.     /    `-----'`     \`.
+          / `    (                    \ \
+          \  `   |                    | |
+           \     |                    | /
+            `.   |                   /.'
+              `._\                 _.'
+                 `--..._     ___..'
+                        `-..'
+                
+        LEVIATHAN VS - Rising from the Abyss
+```

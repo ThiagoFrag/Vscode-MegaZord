@@ -1,15 +1,15 @@
 {
     "mcpServers": {
         // ════════════════════════════════════════════════════════════════════════
-        // MEGAZORD CODE v7.0 - NASA ULTIMATE MCP CONFIGURATION
-        // THE HAND OF GOD - Maximum Power Setup
+        // LEVIATHAN VS v7.0 - NASA ULTIMATE MCP CONFIGURATION
+        // The Abyss - Maximum Power Setup
         // Updated: January 2026
         // ════════════════════════════════════════════════════════════════════════
 
         // ═══════════════════════════════════════════════════════════════════════
-        // CORE - MEGAZORD TRANSLATION ENGINE
+        // CORE - leviathan TRANSLATION ENGINE
         // ═══════════════════════════════════════════════════════════════════════
-        "megazord": {
+        "leviathan": {
             "command": "C:\\Users\\th\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
             "args": ["c:\\Users\\th\\Desktop\\a\\core\\mcp_server.py"],
             "env": { "PYTHONIOENCODING": "utf-8" }
@@ -62,7 +62,7 @@
         // ═══════════════════════════════════════════════════════════════════════
         "sqlite": {
             "command": "C:\\Users\\th\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
-            "args": ["-m", "mcp_server_sqlite", "--db-path", "C:\\Users\\th\\Desktop\\a\\megazord.db"],
+            "args": ["-m", "mcp_server_sqlite", "--db-path", "C:\\Users\\th\\Desktop\\a\\leviathan.db"],
             "env": { "PYTHONIOENCODING": "utf-8" }
         },
 
